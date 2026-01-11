@@ -1,8 +1,13 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, GraduationCap } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
+
+interface PublicNavbarProps {}
+
+import { useState } from "react";
+import { Menu, X, GraduationCap, User, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLocation } from "react-router-dom";
 
 const navLinks = [
   { href: "/", label: "الرئيسية" },
@@ -14,6 +19,13 @@ const navLinks = [
 export function PublicNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-card border-b border-border shadow-depth-sm">
@@ -50,12 +62,33 @@ export function PublicNavbar() {
             </ul>
 
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm">
-                تسجيل الدخول
-              </Button>
-              <Button size="sm">
-                إنشاء حساب
-              </Button>
+              {user ? (
+                <>
+                  <Link to="/dashboard">
+                    <Button variant="outline" size="sm">
+                      <User className="h-4 w-4 ml-2" />
+                      لوحة التحكم
+                    </Button>
+                  </Link>
+                  <Button variant="ghost" size="sm" onClick={handleSignOut}>
+                    <LogOut className="h-4 w-4 ml-2" />
+                    خروج
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Link to="/auth">
+                    <Button variant="outline" size="sm">
+                      تسجيل الدخول
+                    </Button>
+                  </Link>
+                  <Link to="/auth">
+                    <Button size="sm">
+                      إنشاء حساب
+                    </Button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
 
@@ -95,12 +128,33 @@ export function PublicNavbar() {
               ))}
             </ul>
             <div className="flex flex-col gap-2 mt-4 px-4">
-              <Button variant="outline" className="w-full">
-                تسجيل الدخول
-              </Button>
-              <Button className="w-full">
-                إنشاء حساب
-              </Button>
+              {user ? (
+                <>
+                  <Link to="/dashboard" onClick={() => setIsOpen(false)}>
+                    <Button variant="outline" className="w-full">
+                      <User className="h-4 w-4 ml-2" />
+                      لوحة التحكم
+                    </Button>
+                  </Link>
+                  <Button className="w-full" onClick={handleSignOut}>
+                    <LogOut className="h-4 w-4 ml-2" />
+                    تسجيل الخروج
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Link to="/auth" onClick={() => setIsOpen(false)}>
+                    <Button variant="outline" className="w-full">
+                      تسجيل الدخول
+                    </Button>
+                  </Link>
+                  <Link to="/auth" onClick={() => setIsOpen(false)}>
+                    <Button className="w-full">
+                      إنشاء حساب
+                    </Button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         )}
