@@ -2,104 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* مدرسة نصر الدين - نظام التصميم */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Trinidad Color Palette */
+    --trinidad-50: 28 100% 97%;
+    --trinidad-100: 30 90% 92%;
+    --trinidad-200: 28 85% 83%;
+    --trinidad-300: 27 89% 72%;
+    --trinidad-400: 24 87% 60%;
+    --trinidad-500: 22 86% 53%;
+    --trinidad-600: 18 86% 50%;
+    --trinidad-700: 16 80% 40%;
+    --trinidad-800: 14 70% 34%;
+    --trinidad-900: 12 66% 28%;
+    --trinidad-950: 10 75% 15%;
+
+    /* Semantic Colors */
+    --background: var(--trinidad-50);
+    --foreground: var(--trinidad-900);
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: var(--trinidad-800);
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: var(--trinidad-800);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--trinidad-500);
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--trinidad-100);
+    --secondary-foreground: var(--trinidad-800);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--trinidad-100);
+    --muted-foreground: var(--trinidad-600);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--trinidad-100);
+    --accent-foreground: var(--trinidad-800);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: var(--trinidad-200);
+    --input: var(--trinidad-200);
+    --ring: var(--trinidad-500);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: var(--trinidad-800);
+    --sidebar-primary: var(--trinidad-500);
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
+    --sidebar-accent: var(--trinidad-100);
+    --sidebar-accent-foreground: var(--trinidad-800);
+    --sidebar-border: var(--trinidad-200);
+    --sidebar-ring: var(--trinidad-500);
 
-@layer base {
+    /* Custom Shadows for Depth */
+    --shadow-sm: 0 1px 2px 0 hsl(var(--trinidad-900) / 0.03);
+    --shadow-md: 0 2px 8px -2px hsl(var(--trinidad-900) / 0.06), 0 1px 3px -1px hsl(var(--trinidad-900) / 0.04);
+    --shadow-lg: 0 4px 16px -4px hsl(var(--trinidad-900) / 0.08), 0 2px 6px -2px hsl(var(--trinidad-900) / 0.05);
+    --shadow-card: 0 1px 3px 0 hsl(var(--trinidad-900) / 0.04), 0 1px 2px -1px hsl(var(--trinidad-900) / 0.03);
+    --shadow-card-hover: 0 4px 12px -2px hsl(var(--trinidad-900) / 0.08), 0 2px 4px -2px hsl(var(--trinidad-900) / 0.04);
+  }
+
   * {
     @apply border-border;
   }
 
+  html {
+    direction: rtl;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-cairo antialiased;
+  }
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .shadow-depth-sm {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-depth-md {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-depth-lg {
+    box-shadow: var(--shadow-lg);
   }
 }
