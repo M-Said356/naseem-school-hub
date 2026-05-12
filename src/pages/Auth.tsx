@@ -167,6 +167,26 @@ const Auth = () => {
               </div>
             )}
 
+            {!isLogin && (
+              <div className="space-y-2">
+                <Label>نوع الحساب</Label>
+                <RadioGroup
+                  value={role}
+                  onValueChange={(v) => setRole(v as "student" | "teacher")}
+                  className="grid grid-cols-2 gap-2"
+                >
+                  <label className="flex items-center gap-2 p-3 rounded-md border border-border cursor-pointer hover:bg-secondary/50">
+                    <RadioGroupItem value="student" id="r-student" />
+                    <span className="text-sm">طالب</span>
+                  </label>
+                  <label className="flex items-center gap-2 p-3 rounded-md border border-border cursor-pointer hover:bg-secondary/50">
+                    <RadioGroupItem value="teacher" id="r-teacher" />
+                    <span className="text-sm">معلم</span>
+                  </label>
+                </RadioGroup>
+              </div>
+            )}
+
             <div className="space-y-2">
               <Label htmlFor="email">البريد الإلكتروني</Label>
               <div className="relative">
