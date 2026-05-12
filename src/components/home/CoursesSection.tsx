@@ -1,4 +1,4 @@
-import { ArrowLeft, BookOpen, Users, Clock } from "lucide-react";
+import { ArrowLeft, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppCard, AppCardHeader, AppCardTitle, AppCardDescription, AppCardContent, AppCardFooter } from "@/components/common/AppCard";
 import mathImg from "@/assets/course-math.jpg";
