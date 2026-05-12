@@ -1,53 +1,23 @@
-import { BookOpen, Users, Clock, Search } from "lucide-react";
+import { Users, Clock, Search } from "lucide-react";
 import { PublicNavbar } from "@/components/layout/PublicNavbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AppCard, AppCardHeader, AppCardTitle, AppCardDescription, AppCardContent, AppCardFooter } from "@/components/common/AppCard";
+import mathImg from "@/assets/course-math.jpg";
+import arabicImg from "@/assets/course-arabic.jpg";
+import scienceImg from "@/assets/course-science.jpg";
+import englishImg from "@/assets/course-english.jpg";
+import historyImg from "@/assets/course-history.jpg";
+import geographyImg from "@/assets/course-geography.jpg";
 
 const allCourses = [
-  {
-    title: "الرياضيات",
-    description: "أساسيات الرياضيات والجبر والهندسة للمراحل المختلفة.",
-    students: 120,
-    duration: "12 أسبوع",
-    level: "متوسط",
-  },
-  {
-    title: "اللغة العربية",
-    description: "قواعد اللغة العربية والنحو والصرف والأدب.",
-    students: 150,
-    duration: "16 أسبوع",
-    level: "جميع المستويات",
-  },
-  {
-    title: "العلوم",
-    description: "الفيزياء والكيمياء والأحياء بأسلوب تفاعلي وممتع.",
-    students: 95,
-    duration: "14 أسبوع",
-    level: "متقدم",
-  },
-  {
-    title: "اللغة الإنجليزية",
-    description: "تعلم اللغة الإنجليزية من المستوى المبتدئ إلى المتقدم.",
-    students: 180,
-    duration: "20 أسبوع",
-    level: "مبتدئ",
-  },
-  {
-    title: "التاريخ",
-    description: "دراسة التاريخ العربي والإسلامي والحضارات القديمة.",
-    students: 75,
-    duration: "10 أسبوع",
-    level: "متوسط",
-  },
-  {
-    title: "الجغرافيا",
-    description: "استكشاف العالم من خلال دراسة الجغرافيا الطبيعية والبشرية.",
-    students: 60,
-    duration: "8 أسبوع",
-    level: "مبتدئ",
-  },
+  { title: "الرياضيات", description: "أساسيات الرياضيات والجبر والهندسة للمراحل المختلفة.", students: 120, duration: "12 أسبوع", level: "متوسط", image: mathImg },
+  { title: "اللغة العربية", description: "قواعد اللغة العربية والنحو والصرف والأدب.", students: 150, duration: "16 أسبوع", level: "جميع المستويات", image: arabicImg },
+  { title: "العلوم", description: "الفيزياء والكيمياء والأحياء بأسلوب تفاعلي وممتع.", students: 95, duration: "14 أسبوع", level: "متقدم", image: scienceImg },
+  { title: "اللغة الإنجليزية", description: "تعلم اللغة الإنجليزية من المستوى المبتدئ إلى المتقدم.", students: 180, duration: "20 أسبوع", level: "مبتدئ", image: englishImg },
+  { title: "التاريخ", description: "دراسة التاريخ العربي والإسلامي والحضارات القديمة.", students: 75, duration: "10 أسبوع", level: "متوسط", image: historyImg },
+  { title: "الجغرافيا", description: "استكشاف العالم من خلال دراسة الجغرافيا الطبيعية والبشرية.", students: 60, duration: "8 أسبوع", level: "مبتدئ", image: geographyImg },
 ];
 
 const Courses = () => {
@@ -80,8 +50,15 @@ const Courses = () => {
             {allCourses.map((course, index) => (
               <AppCard key={index} hover>
                 <AppCardHeader>
-                  <div className="w-full h-32 rounded-lg bg-secondary border border-border flex items-center justify-center mb-4">
-                    <BookOpen className="h-12 w-12 text-primary" />
+                  <div className="w-full h-40 rounded-lg overflow-hidden border border-border mb-4 shadow-depth-sm">
+                    <img
+                      src={course.image}
+                      alt={course.title}
+                      width={800}
+                      height={512}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-medium px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
