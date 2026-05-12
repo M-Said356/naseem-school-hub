@@ -10,6 +10,11 @@ import Teachers from "./pages/Teachers";
 import About from "./pages/About";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import CoursesDashboard from "./pages/dashboard/CoursesDashboard";
+import CourseDetail from "./pages/dashboard/CourseDetail";
+import AssignmentsList from "./pages/dashboard/AssignmentsList";
+import AssignmentDetail from "./pages/dashboard/AssignmentDetail";
+import Grades from "./pages/dashboard/Grades";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Help from "./pages/Help";
@@ -32,6 +37,11 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/courses" element={<CoursesDashboard />} />
+            <Route path="/dashboard/courses/:id" element={<CourseDetail />} />
+            <Route path="/dashboard/assignments" element={<AssignmentsList />} />
+            <Route path="/dashboard/assignments/:id" element={<AssignmentDetail />} />
+            <Route path="/dashboard/grades" element={<Grades />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/help" element={<Help />} />
