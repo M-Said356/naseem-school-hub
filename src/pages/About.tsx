@@ -2,6 +2,7 @@ import { Target, Eye, Heart, CheckCircle } from "lucide-react";
 import { PublicNavbar } from "@/components/layout/PublicNavbar";
 import { Footer } from "@/components/layout/Footer";
 import { AppCard, AppCardHeader, AppCardTitle, AppCardDescription } from "@/components/common/AppCard";
+import schoolImg from "@/assets/about-school.jpg";
 
 const values = [
   {
@@ -36,6 +37,18 @@ const About = () => {
       <PublicNavbar />
       <main className="flex-1 py-12">
         <div className="container">
+          {/* School Image */}
+          <div className="relative max-w-5xl mx-auto mb-12 rounded-2xl overflow-hidden border border-border shadow-card-hover">
+            <img
+              src={schoolImg}
+              alt="مبنى مدرسة نصر الدين"
+              width={1280}
+              height={896}
+              loading="lazy"
+              className="w-full h-64 md:h-80 object-cover"
+            />
+          </div>
+
           {/* Page Header */}
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
