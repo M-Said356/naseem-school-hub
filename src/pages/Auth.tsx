@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const loginSchema = z.object({
   email: z.string().email("البريد الإلكتروني غير صالح"),
@@ -30,6 +31,7 @@ const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [role, setRole] = useState<"student" | "teacher">("student");
 
   const { signIn, signUp } = useAuth();
   const { toast } = useToast();
@@ -90,7 +92,7 @@ const Auth = () => {
           navigate("/dashboard");
         }
       } else {
-        const { error } = await signUp(email, password, fullName);
+        const { error } = await signUp(email, password, fullName, role);
         if (error) {
           if (error.message.includes("already registered")) {
             toast({
@@ -162,6 +164,26 @@ const Auth = () => {
                 {errors.fullName && (
                   <p className="text-sm text-destructive">{errors.fullName}</p>
                 )}
+              </div>
+            )}
+
+            {!isLogin && (
+              <div className="space-y-2">
+                <Label>نوع الحساب</Label>
+                <RadioGroup
+                  value={role}
+                  onValueChange={(v) => setRole(v as "student" | "teacher")}
+                  className="grid grid-cols-2 gap-2"
+                >
+                  <label className="flex items-center gap-2 p-3 rounded-md border border-border cursor-pointer hover:bg-secondary/50">
+                    <RadioGroupItem value="student" id="r-student" />
+                    <span className="text-sm">طالب</span>
+                  </label>
+                  <label className="flex items-center gap-2 p-3 rounded-md border border-border cursor-pointer hover:bg-secondary/50">
+                    <RadioGroupItem value="teacher" id="r-teacher" />
+                    <span className="text-sm">معلم</span>
+                  </label>
+                </RadioGroup>
               </div>
             )}
 
