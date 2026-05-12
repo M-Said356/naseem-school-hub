@@ -1,4 +1,5 @@
-import { GraduationCap, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
 
 const quickLinks = [
@@ -23,9 +24,7 @@ export function Footer() {
           {/* About */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary shadow-depth-sm">
-                <GraduationCap className="h-6 w-6 text-primary-foreground" />
-              </div>
+              <img src={logo} alt="شعار مدرسة نصر الدين" width={40} height={40} className="h-10 w-10 object-contain" />
               <span className="text-lg font-bold text-foreground">
                 مدرسة نصر الدين
               </span>

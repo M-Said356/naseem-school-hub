@@ -1,6 +1,10 @@
-import { ArrowLeft, BookOpen, Users, Clock } from "lucide-react";
+import { ArrowLeft, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppCard, AppCardHeader, AppCardTitle, AppCardDescription, AppCardContent, AppCardFooter } from "@/components/common/AppCard";
+import mathImg from "@/assets/course-math.jpg";
+import arabicImg from "@/assets/course-arabic.jpg";
+import scienceImg from "@/assets/course-science.jpg";
+import englishImg from "@/assets/course-english.jpg";
 
 const courses = [
   {
@@ -8,28 +12,28 @@ const courses = [
     description: "أساسيات الرياضيات والجبر والهندسة للمراحل المختلفة.",
     students: 120,
     duration: "12 أسبوع",
-    color: "bg-primary/10 border-primary/20",
+    image: mathImg,
   },
   {
     title: "اللغة العربية",
     description: "قواعد اللغة العربية والنحو والصرف والأدب.",
     students: 150,
     duration: "16 أسبوع",
-    color: "bg-trinidad-200/50 border-trinidad-300/50",
+    image: arabicImg,
   },
   {
     title: "العلوم",
     description: "الفيزياء والكيمياء والأحياء بأسلوب تفاعلي وممتع.",
     students: 95,
     duration: "14 أسبوع",
-    color: "bg-trinidad-100 border-trinidad-200",
+    image: scienceImg,
   },
   {
     title: "اللغة الإنجليزية",
     description: "تعلم اللغة الإنجليزية من المستوى المبتدئ إلى المتقدم.",
     students: 180,
     duration: "20 أسبوع",
-    color: "bg-trinidad-50 border-trinidad-200",
+    image: englishImg,
   },
 ];
 
@@ -58,8 +62,15 @@ export function CoursesSection() {
           {courses.map((course, index) => (
             <AppCard key={index} hover>
               <AppCardHeader>
-                <div className={`w-full h-24 rounded-lg border ${course.color} flex items-center justify-center mb-4`}>
-                  <BookOpen className="h-10 w-10 text-primary" />
+                <div className="w-full h-32 rounded-lg overflow-hidden border border-border mb-4 shadow-depth-sm">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    width={800}
+                    height={512}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <AppCardTitle>{course.title}</AppCardTitle>
                 <AppCardDescription>{course.description}</AppCardDescription>

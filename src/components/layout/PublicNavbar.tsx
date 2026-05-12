@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 interface PublicNavbarProps {}
 
 import { useState } from "react";
-import { Menu, X, GraduationCap, User, LogOut } from "lucide-react";
+import { Menu, X, User, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocation } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "/", label: "الرئيسية" },
@@ -33,9 +34,7 @@ export function PublicNavbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary shadow-depth-sm">
-              <GraduationCap className="h-6 w-6 text-primary-foreground" />
-            </div>
+            <img src={logo} alt="شعار مدرسة نصر الدين" width={40} height={40} className="h-10 w-10 object-contain" />
             <span className="text-lg font-bold text-foreground">
               مدرسة نصر الدين
             </span>
